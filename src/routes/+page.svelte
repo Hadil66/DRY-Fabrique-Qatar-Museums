@@ -7,23 +7,35 @@
     
 	import Navbar from '$lib/Navbar.svelte';
 
+	let scrollContainer;
+
+function handleScroll() {
+  if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+	scrollContainer.scrollLeft -= scrollContainer.scrollWidth / 2;
+  } else if (scrollContainer.scrollLeft === 0) {
+	scrollContainer.scrollLeft += scrollContainer.scrollWidth / 2;
+  }
+}
+
 </script>
 <Navbar />
-<ul class="masonry">
-	{#each data.artObjects.filter((art) => art.title
-			.toLowerCase()
-			.includes(filterText.toLowerCase())) as art}
-		<li class="masonry-item">
-			<figure>
-				<img src={'https://fdnd-agency.directus.app/assets/' + art.image} alt={art.title} />
-				<figcaption>
-					<h2>{art.title}</h2>
-					<a href="#" class="button">Meer info</a>
-				</figcaption>
-			</figure>
-		</li>
-	{/each}
-</ul>
+<div class="scroll-container"
+bind:this={scrollContainer}
+  on:scroll={handleScroll}>
+  <ul class="masonry">
+    {#each [...data.artObjects, ...data.artObjects].filter((art, index) => index < data.artObjects.length * 2) as art}
+      <li class="masonry-item">
+        <figure>
+          <img src={'https://fdnd-agency.directus.app/assets/' + art.image} alt={art.title} />
+          <figcaption>
+            <h2>{art.title}</h2>
+            <a href="#" class="button">Meer info</a>
+          </figcaption>
+        </figure>
+      </li>
+    {/each}
+  </ul>
+</div>
 
 <!-- Filters/search workspace Ellenoor-->
 <div class="filteredList">
@@ -54,24 +66,35 @@
 	* {
 		transition: 0.2s;
 		font-family: 'DIN Next', sans-serif;
+
 	}
 
+	.scroll-container {
+		display: flex;
+		overflow-x: auto;
+		padding: 1rem;
+		margin: 2.5rem;
+		scroll-snap-type: x mandatory;
+		
+
+	}
 	.masonry {
-		column-count: 1;
-		column-gap: 1rem;
+		display: flex;
 		list-style: none;
 		padding: 0;
+		gap: 1rem;
 	}
-
+ 
 	.masonry-item {
-		break-inside: avoid;
-		margin-bottom: 1rem;
-		position: relative;
+		flex: 0 0 auto; 
+		scroll-snap-align: start;
 		overflow: hidden;
+		width: 300px; /* Set a fixed width */
+		height: 200px; /* Set a fixed height */
 		background-color: #fff;
 		border-radius: 8px;
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	}
+	} 
 
 	figure {
 		margin: 0;
