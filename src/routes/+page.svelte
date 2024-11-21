@@ -7,13 +7,15 @@
     
 	import Navbar from '$lib/Navbar.svelte';
 
-	let scrollContainer;
+	import Searchbar from '$lib/searchbar.svelte';
+
+	let scrollContainer; // variable scroll container. 
 
 function handleScroll() {
-  if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
-	scrollContainer.scrollLeft -= scrollContainer.scrollWidth / 2;
-  } else if (scrollContainer.scrollLeft === 0) {
-	scrollContainer.scrollLeft += scrollContainer.scrollWidth / 2;
+  // Als de gebruiker halverwege de scrollcontainer is gescrolld...
+  if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) { 
+    // ... scroll dan terug naar het begin van de tweede helft van de inhoud.
+    scrollContainer.scrollLeft -= scrollContainer.scrollWidth / 2;
   }
 }
 
@@ -46,28 +48,14 @@ bind:this={scrollContainer}
 	<button class="filter-option" data-filter="Glass" tabindex="0">Glass</button>
 </div>
 
-<div class="wrap">
-	<div class="search">
-		<input
-			type="text"
-			class="searchTerm"
-			bind:value={filterText}
-			placeholder="Search the collection"
-		/>
-		<button type="submit" class="searchButton" aria-label="Submit search">
-			<Search />
-		</button>
-	</div>
+<div>
+	<Searchbar/>
 </div>
 
 <!-- Filters/search workspace Ellenoor-->
 
 <style>
-	* {
-		transition: 0.2s;
-		font-family: 'DIN Next', sans-serif;
 
-	}
 
 	.scroll-container {
 		display: flex;
@@ -197,42 +185,11 @@ bind:this={scrollContainer}
 	}
 
 	/* Styling voor de zoekbalk */
-	.search {
-		width: 100vw;
-		position: relative;
-		display: flex;
-	}
 
-	.searchTerm {
-		width: 100%;
-		border: 2px solid black;
-		border-right: none;
-		padding: 0.5em 0 0 0.5em;
-		color: #707070;
-		font-size: 25px;
-		text-decoration: underline black;
-	}
+/* import font */
 
-	.searchTerm:focus {
-		color: black;
-	}
 
-	.searchButton {
-		width: 4em;
-		height: 5.3em;
-		padding: 0.5em;
-		border-left: none;
-		background: white;
-		text-align: center;
-		justify-content: center;
-		color: black;
-		cursor: pointer;
-	}
 
-	.wrap {
-		position: fixed;
-		bottom: 0;
-	}
 
 	@media only screen and (min-width: 600px) {
 		/* Code voor filter buttons */
@@ -259,7 +216,5 @@ bind:this={scrollContainer}
 			transform: translateX(-50%);
 		}
 	}
-	/* ---- */
-	/* Styling Ellenoor */
-	/* ---- */
+	
 </style>
