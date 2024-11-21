@@ -26,7 +26,7 @@ bind:this={scrollContainer}
   on:scroll={handleScroll}>
   <ul class="masonry">
     {#each [...data.artObjects, ...data.artObjects].filter((art, index) => index < data.artObjects.length * 2) as art}
-      <li class="masonry-item">
+      <li class="masonry-item" tabindex="0">
         <figure>
           <img src={'https://fdnd-agency.directus.app/assets/' + art.image} alt={art.title} />
           <figcaption>
@@ -83,6 +83,13 @@ bind:this={scrollContainer}
 		border-radius: 8px;
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	} 
+
+	.masonry-item:focus {
+  outline: 2px solid #020202; /* Blauw omlijning */
+  outline-offset: 3px; /* Ruimte tussen rand en inhoud */
+}
+
+
 
 	figure {
 		margin: 0;
