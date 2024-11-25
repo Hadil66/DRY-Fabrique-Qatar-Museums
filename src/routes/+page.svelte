@@ -31,7 +31,7 @@ bind:this={scrollContainer}
           <img src={'https://fdnd-agency.directus.app/assets/' + art.image} alt={art.title} />
           <figcaption>
             <h2>{art.title}</h2>
-            <a href="#" class="button">Meer info</a>
+            <a tabindex="-1" href="#" class="button">Meer info</a>
           </figcaption>
         </figure>
       </li>
@@ -52,7 +52,6 @@ bind:this={scrollContainer}
 	<Searchbar/>
 </div>
 
-<!-- Filters/search workspace Ellenoor-->
 
 <style>
 
@@ -62,10 +61,9 @@ bind:this={scrollContainer}
 		overflow-x: auto;
 		padding: 1rem;
 		margin: 2.5rem;
-		scroll-snap-type: x mandatory;
-		
-
+		scroll-snap-type: x mandatory;	
 	}
+
 	.masonry {
 		display: flex;
 		list-style: none;
@@ -77,19 +75,17 @@ bind:this={scrollContainer}
 		flex: 0 0 auto; 
 		scroll-snap-align: start;
 		overflow: hidden;
-		width: 300px; /* Set a fixed width */
-		height: 200px; /* Set a fixed height */
+		width: 300px;
+		height: 200px; 
 		background-color: #fff;
 		border-radius: 8px;
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	} 
 
 	.masonry-item:focus {
-  outline: 2px solid #020202; /* Blauw omlijning */
-  outline-offset: 3px; /* Ruimte tussen rand en inhoud */
-}
-
-
+		outline: 2px solid #020202; 
+		outline-offset: 3px; 
+	}
 
 	figure {
 		margin: 0;
@@ -190,13 +186,6 @@ bind:this={scrollContainer}
 		display: flex;
         margin-left: 1em;
 	}
-
-	/* Styling voor de zoekbalk */
-
-/* import font */
-
-
-
 
 	@media only screen and (min-width: 600px) {
 		/* Code voor filter buttons */

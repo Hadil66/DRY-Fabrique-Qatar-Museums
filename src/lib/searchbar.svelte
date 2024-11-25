@@ -39,8 +39,8 @@
     position: absolute;	
     bottom: 0.5em;
     left: 0.5rem;
-    width: 93%; /* Extends the underline to the full width */
-    height: 1px; /* Thickness of the underline */
+    width: 93%;
+    height: 1px; 
     background-color: black;
 }
 .search.loading::after {
@@ -52,17 +52,9 @@
     flex: 1; /* Takes up all remaining space */
     border: none; 
     padding: 0.5em 0.5em;
-
     font-family: 'Roboto condensed', sans-serif;
-  
     font-size: 24px;
-
- 
     background: transparent;
-}
-
-.search:focus {
-color: rgb(28, 9, 238);
 }
 
 /* text styling */
