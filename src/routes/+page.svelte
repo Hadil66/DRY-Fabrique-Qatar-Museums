@@ -16,9 +16,12 @@ function handleScroll() {
   if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) { 
     // ... scroll dan terug naar het begin van de tweede helft van de inhoud.
     scrollContainer.scrollLeft -= scrollContainer.scrollWidth / 2;
+  // Als de gebruiker halverwege de scrollcontainer is gescrolld...
+  if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) { 
+    // ... scroll dan terug naar het begin van de tweede helft van de inhoud.
+    scrollContainer.scrollLeft -= scrollContainer.scrollWidth / 2;
   }
 }
-
 </script>
 <Navbar />
 <div class="scroll-container"
