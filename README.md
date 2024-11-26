@@ -8,7 +8,7 @@ Er is ook een filteroptie die niet toepasselijke objecten dimt bij hover.
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-## Funties
+## Functies
 - Oneindig canvas: Scroll in alle richtingen met willekeurige objecten.
 - Aanklikbare objecten: Klik voor meer details.
 - Filters: Dim objecten bij hover, klik voor meer filters.
@@ -17,6 +17,8 @@ Everything you need to build a Svelte project, powered by [`sv`](https://github.
 - Responsief ontwerp: Werkt op mobiel, tablet en desktop.
 - Meertalig: Ondersteuning voor Engels en Arabisch (RTL).
 
+
+##Installatie 
 ## Creating a project
 
 If you're seeing this, you've probably already done this step. Congrats!
