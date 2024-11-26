@@ -16,6 +16,7 @@ function handleScroll() {
 }
 </script>
 <Navbar />
+
 <div
   class="scroll-container"
   bind:this={scrollContainer}
@@ -28,7 +29,7 @@ function handleScroll() {
           <img src={'https://fdnd-agency.directus.app/assets/' + art.image} alt={art.title} />
           <figcaption>
             <h2>{art.title}</h2>
-            <a href="#" class="button">Meer info</a>
+            <a href="/" class="button" tabindex="-1">Meer info</a>
           </figcaption>
         </figure>
       </li>
@@ -40,7 +41,6 @@ function handleScroll() {
 <div>
   <Searchbar />
 </div>
-
 
 
 <style>
@@ -114,7 +114,6 @@ function handleScroll() {
 	.masonry-item:hover figcaption, .masonry-item:focus figcaption  {
 		opacity: 1;
 	}
-	
 
 	h2 {
 		font-size: 16px;
