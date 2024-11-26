@@ -26,8 +26,8 @@ bind:this={scrollContainer}
   on:scroll={handleScroll}>
   <ul class="masonry">
     {#each [...data.artObjects, ...data.artObjects].filter((art, index) => index < data.artObjects.length * 2) as art}
-      <li class="masonry-item" tabindex="0">
-        <figure>
+      <li class="masonry-item" >
+        <figure> 
           <img src={'https://fdnd-agency.directus.app/assets/' + art.image} alt={art.title} />
           <figcaption>
             <h2>{art.title}</h2>
@@ -118,10 +118,10 @@ bind:this={scrollContainer}
 		transition: opacity 0.3s ease-in-out;
 	}
 
-	.masonry-item:hover img {
+	.masonry-item:hover img, .masonry-item:focus img {
 		transform: scale(1.1);
 	}
-	.masonry-item:hover figcaption {
+	.masonry-item:hover figcaption, .masonry-item:focus figcaption  {
 		opacity: 1;
 	}
 
@@ -171,22 +171,7 @@ bind:this={scrollContainer}
 		cursor: pointer;
 	}
 
-	/* Styling voor tab functie */
-	.filter-option:focus {
-		outline: 2px solid #007bff;
-		box-shadow: 0 0 0 2px #007bff;
-		background-color: #007bff;
-		color: #ffffff;
-	}
-
-	.filteredList {
-		position: fixed;
-		bottom: 5em;
-		overflow: scroll;
-		display: flex;
-        margin-left: 1em;
-	}
-
+	
 	@media only screen and (min-width: 600px) {
 		/* Code voor filter buttons */
 		.filteredList {
