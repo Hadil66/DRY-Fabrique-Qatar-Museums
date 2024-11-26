@@ -1,21 +1,13 @@
 <script>
 	export let data;
 	console.log(data); // Hiermee kun je zien hoe de API-respons eruitziet
-
 	import Search from '$lib/Search.svelte'; // Icoon wordt gebruikt voor de searchbar
 	let filterText = '';
     
 	import Navbar from '$lib/Navbar.svelte';
-
 	import Searchbar from '$lib/searchbar.svelte';
-
 	let scrollContainer; // variable scroll container. 
-
 function handleScroll() {
-  // Als de gebruiker halverwege de scrollcontainer is gescrolld...
-  if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) { 
-    // ... scroll dan terug naar het begin van de tweede helft van de inhoud.
-    scrollContainer.scrollLeft -= scrollContainer.scrollWidth / 2;
   // Als de gebruiker halverwege de scrollcontainer is gescrolld...
   if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) { 
     // ... scroll dan terug naar het begin van de tweede helft van de inhoud.
@@ -24,17 +16,19 @@ function handleScroll() {
 }
 </script>
 <Navbar />
-<div class="scroll-container"
-bind:this={scrollContainer}
-  on:scroll={handleScroll}>
+<div
+  class="scroll-container"
+  bind:this={scrollContainer}
+  on:scroll={handleScroll}
+>
   <ul class="masonry">
-    {#each [...data.artObjects, ...data.artObjects].filter((art, index) => index < data.artObjects.length * 2) as art}
+    {#each [...data.artObjects, ...data.artObjects].filter((_, index) => index < data.artObjects.length * 2) as art}
       <li class="masonry-item" tabindex="0">
         <figure>
           <img src={'https://fdnd-agency.directus.app/assets/' + art.image} alt={art.title} />
           <figcaption>
             <h2>{art.title}</h2>
-            <a tabindex="-1" href="#" class="button">Meer info</a>
+            <a href="#" class="button">Meer info</a>
           </figcaption>
         </figure>
       </li>
@@ -42,18 +36,11 @@ bind:this={scrollContainer}
   </ul>
 </div>
 
-<!-- Filters/search workspace Ellenoor-->
-<div class="filteredList">
-	<button class="filter-option" data-filter="*" tabindex="0">All objects</button>
-	<button class="filter-option" data-filter="Pottery" tabindex="0">Pottery</button>
-	<button class="filter-option" data-filter="Islamic art" tabindex="0">Islamic art</button>
-	<button class="filter-option" data-filter="Tapestry" tabindex="0">Tapestry</button>
-	<button class="filter-option" data-filter="Glass" tabindex="0">Glass</button>
+<!-- Zorg ervoor dat dit geen onderdeel is van de each-lus -->
+<div>
+  <Searchbar />
 </div>
 
-<div>
-	<Searchbar/>
-</div>
 
 
 <style>
@@ -121,12 +108,13 @@ bind:this={scrollContainer}
 		transition: opacity 0.3s ease-in-out;
 	}
 
-	.masonry-item:hover img {
+	.masonry-item:hover img, .masonry-item:focus img {
 		transform: scale(1.1);
 	}
-	.masonry-item:hover figcaption {
+	.masonry-item:hover figcaption, .masonry-item:focus figcaption  {
 		opacity: 1;
 	}
+	
 
 	h2 {
 		font-size: 16px;
