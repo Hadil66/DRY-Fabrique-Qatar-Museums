@@ -43,13 +43,13 @@
     height: 1px; 
     background-color: black;
 }
-.search.loading::after {
-    animation: loadingAnimation 1s infinite ease-in-out; /* Animation for loading */
-}
+/* .search.loading::after {
+    animation: loadingAnimation 1s infinite ease-in-out;
+} */
 
 
 .searchTerm {
-    flex: 1; /* Takes up all remaining space */
+    flex: 1; 
     border: none; 
     padding: 0.5em 0.5em;
     font-family: 'Roboto condensed', sans-serif;
