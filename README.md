@@ -1,4 +1,4 @@
-# Quatar museums
+# Qatar museums
 ![Qatar Museums Mock up](https://github.com/user-attachments/assets/d9b79b0e-ec08-4e4b-8779-15d75dbc0eaf)
 
 
