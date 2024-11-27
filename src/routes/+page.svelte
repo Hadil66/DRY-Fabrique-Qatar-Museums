@@ -7,7 +7,7 @@
     
 	import Navbar from '$lib/Navbar.svelte';
 
-	import Searchbar from '$lib/searchbarMap/searchbar.svelte';
+	import Searchbar from '$lib/molecules/searchbar.svelte';
 
 	let scrollContainer; // variable scroll container. 
 
