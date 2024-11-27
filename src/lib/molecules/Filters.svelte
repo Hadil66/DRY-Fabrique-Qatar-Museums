@@ -41,6 +41,7 @@
 
 <style>
   ul {
+    backdrop-filter: blur(4px);
     bottom: 6em;
     display: flex;
     margin: 0;
