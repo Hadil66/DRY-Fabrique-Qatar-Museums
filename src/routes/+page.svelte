@@ -66,6 +66,7 @@ bind:this={scrollContainer}
 	  </li>
 	{/each}
   </ul>
+</div>
 
 <div>
 	<Searchbar/>

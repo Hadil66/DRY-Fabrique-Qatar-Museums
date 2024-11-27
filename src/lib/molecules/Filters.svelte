@@ -41,7 +41,7 @@
 
 <style>
   ul {
-    bottom: 5em;
+    bottom: 6em;
     display: flex;
     margin: 0;
     overflow: scroll;
@@ -59,6 +59,7 @@
 
   ul li {
     cursor: pointer;
+    list-style-type: "";
   }
 
   @media (prefers-reduced-motion) {
@@ -70,13 +71,10 @@
     }
   }
 
-  ul li {
-    list-style-type: "";
-  }
-
   ul button {
     background-color: #464646;
     border: none;
+    border-radius: 4px;
     color: white;
     cursor: pointer;
     font-size: 18px;

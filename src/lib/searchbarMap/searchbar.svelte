@@ -30,8 +30,9 @@
     display: flex;
     align-items: center; 
     border: 2px solid rgb(14, 14, 14); 
-    border-radius: 0.5rem; 
+    border-radius: 4px; 
     overflow: hidden;
+    background: white;
 }
 
 .search::after {
